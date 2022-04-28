@@ -1,1 +1,2 @@
-This repository is meant to display the code used to build the optimisation strategy and train the models. However, due to the size of the training data it is not included and the code cannot be run.
+This repository contains Python code for the thesis project 'Optimisation of a Convolutional Neural' submitted in partial fulfilment of the requirements of the award of Master of Engineering in Electrical and Electronic Engineering at the University of Aberdeen
+This repository is meant to display the code used to build the optimisation strategy and train the models. However, due to the size of the training data, grasping dataset is not included. Therefore, the system cannot be tested (without the grasping dataset).
