@@ -124,14 +124,10 @@ test_set_reward = create_column(test_set, 'actions', 0, 'reward')
 #validation_tp = (validation_set_df_reshaped, validation_set_reward)
     
 
-#print(validation_tp)
-# 5 Deffining hyper parameters, creating model and training it
 
-learning_rate = 0.004386 # Baseline was 1e-4
-epochs = 500 # Baseline for testing was 2000, possible that it should have been lower?
 batch_size = 64 # Baseline was 64
 singlethresh = 0.23333333333333336
-filepath = "C:/Users/User/Documents/UNI/MEng Project/PYFILES/archive/models/full.tf"
+filepath = "C:/Users/User/Documents/UNI/MEng Project/PYFILES/archive/models/all.tf"
 cp_callback = ModelCheckpoint(filepath, monitor='binary_crossentropy', verbose=0, save_best_only=False, save_weights_only=False, mode='auto', save_freq=batch_size)
 
 
@@ -142,11 +138,11 @@ cp_callback = ModelCheckpoint(filepath, monitor='binary_crossentropy', verbose=0
 # Loading and preparing the model
 
 model = models.load_model(filepath,compile=False)
-tf.keras.models.save_model(model,"C:/Users/User/Documents/UNI/MEng Project/PYFILES/archive/models/full.h5")
+#tf.keras.models.save_model(model,"C:/Users/User/Documents/UNI/MEng Project/PYFILES/archive/models/full.h5")
 print(model.summary())
 print(model.input)
 print(model.output)
-visualkeras.layered_view(model)
+#visualkeras.layered_view(model)
 NNmod = Model(inputs=model.input, outputs=model.output[0])
 NNmod.compile(optimizer=tf.keras.optimizers.RMSprop(learning_rate=1e-4),
    			loss='binary_crossentropy', metrics=[tf.keras.metrics.BinaryCrossentropy()])
@@ -214,7 +210,6 @@ for i in range(0,len(test_set)):
 #         if auc_keras>tempauc:
 #             tempthresh = thresholds[j]
 #             tempauc = auc_keras
-#         print("!!!!!!!!!!!")
 # print(tt)
 # print(np.mean(tt))
 # print("Best AUC: ",tempauc)
